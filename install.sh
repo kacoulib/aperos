@@ -1,6 +1,6 @@
 USERNAME='root'
 PASSWORD=''
-DBNAME='aperos'
+DBNAME='db_aperos'
 HOST='localhost'
 
 USER_USERNAME='root'
@@ -16,10 +16,10 @@ then
     sed -i "s/DB_USERNAME=homestead/DB_USERNAME=$USER_USERNAME/g" ${_env_example}
     sed -i "s/DB_PASSWORD=secret/DB_PASSWORD=$USER_PASSWORD/g" ${_env_example}
 
-    if [ $(uname -s)="Darwin" ]
-    then
-       sed -i "s/DB_PORT=3306/DB_PORT=8889/g" ${_env_example}
-    fi
+    #if [ $(uname -s)="Darwin" ]
+    #then
+    #   sed -i "s/DB_PORT=3306/DB_PORT=8889/g" ${_env_example}
+    #fi
 
     mv ${_env_example} ${_env}
     php artisan key:generate
@@ -34,7 +34,6 @@ DELETE FROM mysql.user WHERE user='$USER_USERNAME' and host='$USER_PASSWORD';
 GRANT ALL PRIVILEGES ON $DBNAME.* to '$USER_USERNAME'@'$HOST' IDENTIFIED BY '$USER_PASSWORD' WITH GRANT OPTION;
 EOF
 )
-
 
 echo $MySQL | mysql --user=$USERNAME --password=$PASSWORD
 

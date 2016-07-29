@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - db_aperos@localhost" uuid="3688a8c6-3162-490a-b0da-61f9ce8590b1">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>db_aperos.*</schema-pattern>
+      <default-schemas>db_aperos.*</default-schemas>
+    </data-source>
+  </component>
+</project>

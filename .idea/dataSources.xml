@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3395065563">
-    <data-source source="LOCAL" name="MySQL - @localhost" uuid="47991b7b-c541-40c4-ab16-916d64f8dc83">
+  <component name="DataSourceManagerImpl" format="xml" hash="3780689820">
+    <data-source source="LOCAL" name="MySQL - db_aperos@localhost" uuid="3688a8c6-3162-490a-b0da-61f9ce8590b1">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/db_aperos</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

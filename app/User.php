@@ -23,4 +23,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // user has many aperos
+    public function aperos(){
+        return $this->hasMany('App\Apero');
+    }
 }
