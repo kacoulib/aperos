@@ -1,20 +1,31 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { FrontComponent } from './components/front/front.component';
+import { HomeComponent } from './components/front/home.component';
+import { SearchComponent } from './components/front/search.component';
+import {CreateComponent} from "./components/front/create.component";
 
 
 const routes: RouterConfig = [
     {
         path: '',
-        redirectTo: '/',
-        pathMatch: 'full'
+        redirectTo: '',
+        pathMatch: 'full',
+        component: HomeComponent
     },
     {
-        path: '/',
-        component: FrontComponent
+        path: '',
+        component: HomeComponent
     },
     {
-        path: '/apero/search',
-        component: FrontComponent
+        path: 'search',
+        component: SearchComponent
+    },
+    {
+        path: 'search/:id',
+        component: SearchComponent
+    },
+    {
+        path: 'create',
+        component: CreateComponent
     }
 ];
 

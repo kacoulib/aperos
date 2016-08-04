@@ -10,14 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/toPromise');
+require('rxjs/operator');
+var index_1 = require('../../mocks/index');
 var AperoService = (function () {
     function AperoService(http) {
         this.http = http;
-        this.heroesUrl = 'http://date.jsontest.com'; // URL to web API
+        this.heroesUrl = 'http://localhost/laravel/aperos/public/'; // URL to web API
+        this.http.get(this.heroesUrl).subscribe(function (data) { return console.log(data); });
     }
     AperoService.prototype.getAperos = function () {
-        return this.http.get(this.heroesUrl)
-            .map(function (res) { return res.json(); });
+        this.aperos = index_1.APEROS;
+        return this.aperos;
+    };
+    AperoService.prototype.getCategories = function () {
+        this.categories = index_1.CATEGORIES;
+        return this.categories;
+    };
+    AperoService.prototype.create = function (param) {
+        return console.log(param);
+        // this.aperos.push(pra);
     };
     AperoService = __decorate([
         core_1.Injectable(), 

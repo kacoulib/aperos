@@ -1,10 +1,10 @@
+import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { HTTP_PROVIDERS } from '@angular/http';
 
+import { AppComponent } from './app/components/app.component';
 import { appRouterProviders } from './app/app.routes';
 
-import { AppComponent } from './app/components/app.component';
-
-import { bootstrap }    from '@angular/platform-browser-dynamic';
-
-
-bootstrap(AppComponent, [HTTP_PROVIDERS, appRouterProviders ]);
+bootstrap( AppComponent, [
+	appRouterProviders,
+	HTTP_PROVIDERS
+]).catch(err => console.error(err));

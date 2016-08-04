@@ -9,23 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
+// import { Http, Response } from '@angular/http';
 var apero_service_1 = require('../../services/front/apero.service');
 var FrontComponent = (function () {
-    function FrontComponent(http) {
-        this.http = http;
+    function FrontComponent() {
+        console.log(this);
     }
     FrontComponent.prototype.list = function () {
-        return this.http.get('/').map(function (res) { return res.json(); });
+        // return this.http.get('/').map(res => res.json());
     };
     FrontComponent = __decorate([
         core_1.Component({
-            selector: 'my-wiki',
-            template: "\n    <h1>Wikipedia Demo</h1>\n    <p><i>Fetches after each keystroke</i></p>\n    <input #term (keyup)=\"search(term.value)\"/>\n    <ul>\n      <li *ngFor=\"let item of items | async\">{{item}}</li>\n    </ul>\n  ",
+            selector: 'my-home',
+            templateUrl: './home.component.html',
             providers: [apero_service_1.AperoService]
         }),
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [])
     ], FrontComponent);
     return FrontComponent;
 }());

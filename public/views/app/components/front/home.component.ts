@@ -3,18 +3,20 @@ import { Component, Injectable } from '@angular/core';
 // import { Http, Response } from '@angular/http';
 
 import { AperoService } from '../../services/front/apero.service';
+import {Apero} from "../../../apero";
 
 @Component({
     selector: 'my-home',
-    templateUrl: './home.component.html',
-    providers: [AperoService]
+    templateUrl: 'app/components/front/home.component.html',
 })
 
 @Injectable()
-export class FrontComponent {
+export class HomeComponent {
+    aperos : Apero[];
 
-    constructor() {
-        console.log(this)
+    constructor(private apreoService: AperoService) {
+        this.aperos = this.apreoService.getAperos();
+        // this.aperos = this.aperoService.getAperos();
     }
 
     list() {

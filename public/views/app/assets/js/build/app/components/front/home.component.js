@@ -9,19 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var RaceService = (function () {
-    function RaceService(http) {
-        this.http = http;
+// import { Http, Response } from '@angular/http';
+var apero_service_1 = require('../../services/front/apero.service');
+var HomeComponent = (function () {
+    function HomeComponent(apreoService) {
+        this.apreoService = apreoService;
+        this.aperos = this.apreoService.getAperos();
+        // this.aperos = this.aperoService.getAperos();
     }
-    RaceService.prototype.list = function () {
-        return this.http.get(baseUrl + "/").map(function (res) { return res.json(); });
+    HomeComponent.prototype.list = function () {
+        // return this.http.get('/').map(res => res.json());
     };
-    RaceService = __decorate([
+    HomeComponent = __decorate([
+        core_1.Component({
+            selector: 'my-home',
+            templateUrl: 'app/components/front/home.component.html',
+        }),
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], RaceService);
-    return RaceService;
+        __metadata('design:paramtypes', [apero_service_1.AperoService])
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.RaceService = RaceService;
+exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

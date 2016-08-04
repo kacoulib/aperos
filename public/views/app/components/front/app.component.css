@@ -1,0 +1,10 @@
+#main{
+    margin-top: 75px;
+}
+#main > ul > li{
+    margin-bottom: 5rem;
+    padding-bottom: 5rem;
+}
+#sidebar{
+    margin-top: 75px;
+}

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('rm.master')
 
 @section('content')
     <form action="{{url('login')}}" method="post">

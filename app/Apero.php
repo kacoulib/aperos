@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apero extends Model
 {
+    protected $fillable =  ['title', 'date', 'content', 'category_id', 'user_id', 'status', 'uri'];
+    protected $table = 'aperos';
+
     // apero belongsTo one aperos
     public function user(){
         return $this->belongsTo('App\User');
     }
 
-    // hasMany aperos
-    public function categories(){
-        return $this->hasMany('App\Category');
+    // hasone apero
+    public function category(){
+        return $this->belongsTo('App\Category');
     }
 
     // hasMany tag
@@ -22,12 +25,18 @@ class Apero extends Model
     }
 
     //   surchager a method
-    public function getItems()
+    public function scopeFetchJson($query)
     {
-        return $this;
-        return array_map(function ($value) {
-            return $value instanceof Arrayable ? $value->toArray() : $value;
-        }, $this->items);
-    }
+        $r = $this::where('status', '=', 'publish')->orderBy('date', 'asc')->paginate(3);
 
+        $aperos = [];
+
+        for( $i = 0; $i < count($r); $i++){
+            $aperos[$i]['aperoUser'] = $r[$i]->user;
+            $aperos[$i]['aperoTags'] = $r[$i]->tags;
+
+            array_push($aperos, $r[$i]);
+        }
+        return response()->json($aperos);
+    }
 }

@@ -10,6 +10,6 @@ class Category extends Model
     
     // belongsTo many aperos
     public function aperos(){
-        return $this->belongsToMany('App\Apero');
+        return $this->hasMany('App\Apero');
     }
 }

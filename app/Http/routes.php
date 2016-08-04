@@ -11,15 +11,27 @@
 |
 */
 
-Route::get('/', 'FrontController@index');
+Route::get('/', ['as' => 'home', 'uses' => 'FrontController@index']);
+Route::any('create', [
+    'as' => 'create',
+    'middleware' => 'auth',
+    'uses' => 'FrontController@create']);
+Route::post('createApero', 'FrontController@createApero');
 Route::get('apero/{id}', 'FrontController@single');
-Route::get('/search', 'FrontController@search');
+Route::any('/search', [
+    'as' => 'search',
+    'uses' => 'FrontController@search']);
 
-Route::group(['prefix' => 'admin'], function (){
+// any get post ...
+Route::any('login','LoginController@login');
+Route::get('logout', 'LoginController@logout');
 
-    Route::get('/', 'AdminController@index');
-    Route::match(['get', 'post'], '/create', 'AdminController@create');
-    Route::match(['get', 'post'], '/update/{id}', 'AdminController@update');
-    Route::post('/delete', 'AdminController@destroy');
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+//    Route::get('',[
+//        'as' => 'admin.apero.index',
+//        'uses' => 'AdminController@index']);
+//    Route::get('update/?action={action}&param={id}', 'AdminController@update');
+
+    Route::resource('apero', 'AdminController');
 });

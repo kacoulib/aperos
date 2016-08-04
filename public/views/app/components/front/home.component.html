@@ -1,0 +1,24 @@
+<h1>Les aperos sur Paris</h1>
+<ul>
+    <li *ngFor="let apero of aperos" class="underline">
+        <h3>{{apero.title}}</h3>
+        <img src="http://fakeimg.pl/250x100/" class="pull-left">
+        <p class="inlineElem pull-right">{{apero.abstract}}</p>
+        <div class="clearfix"></div>
+
+        <div class="text-left">
+            <span class="underline grayColor">Author :</span>
+            <h4 class="inlineElem"><a href="user/profile/{{apero.user.id}}" class="text-left">{{apero.user.username}}</a></h4>
+        </div>
+        <div class="text-left"><span class="underline grayColor">Date :</span> <a href="eventDate/{{apero.date}}">{{apero.date}}</a></div>
+        <div class="text-left">
+            <span class="underline grayColor">Tags :</span>
+            <ul class="inlineList inlineElem ">
+                <li *ngFor="let tag of apero.tags" class="text-right">
+                    <a href="tag/{{tag.name}}">{{tag.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <p class="text-left"><span class="underline grayColor">category</span> : <a href="category/{{apero.category_id}}">category_id</a></p>
+    </li>
+</ul>

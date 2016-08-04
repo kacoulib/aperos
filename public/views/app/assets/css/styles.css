@@ -1,7 +1,30 @@
 /*
  * Globals
  */
+ul{
+    list-style: none;
+}
+ul.inlineElem{
+    padding-left: 5px;
+}
+.underline{
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+}
+.inlineElem{
+    display: inline-block;
+}
+.inlineList li{
+    display: inline-block;
+    padding: 5px;
+}
+input{
+    color: darkslateblue;
+}
 
+.grayColor{
+    color: rgba(255,255,255,.75);
+}
 /* Links */
 a,
 a:focus,
@@ -52,7 +75,10 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
+.masthead{
+    background-color: #333;
+    z-index: 9;
+}
 /* Padding for spacing */
 .inner {
     padding: 30px;
@@ -127,6 +153,15 @@ body {
     color: rgba(255,255,255,.5);
 }
 
+
+
+/*
+ * Footer
+ */
+
+#sidebar{
+    border-left: 1px solid white;
+}
 
 /*
  * Affix and center

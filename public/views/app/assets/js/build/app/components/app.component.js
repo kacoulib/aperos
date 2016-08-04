@@ -10,18 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var apero_service_1 = require('../services/front/apero.service');
+// import { HTTP_PROVIDERS } from '@angular/http';
+require('rxjs/add/operator/map');
+var router_1 = require('@angular/router');
+var search_component_1 = require("./front/search.component");
+var sidebar_component_1 = require("./front/sidebar.component");
+var home_component_1 = require("./front/home.component");
 var AppComponent = (function () {
     function AppComponent(aperoService) {
-        var _this = this;
         this.aperoService = aperoService;
-        this.aperoService.getAperos().
-            subscribe(function (data) { return _this.data = json.stringify(data); }, function (error) { return _this.error = error; }, function () { return alert('complit'); });
+        this.aperos = aperoService.getAperos();
+        // console.log(this.aperoService.getAperos().aperos)
+        // this.aperos = this.aperoService.getAperos().aperos;
+        // this.aperoService.getAperos()
+        //     .then(
+        //         data=>this.datas = JSON.stringify(data),
+        //         error => this.errors = error
+        //     );
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n                <h1>My First Angular 2 App</h1>\n                <p> {{data}} </p>\n                <p> {{error}} </p>\n            ",
-            providers: [apero_service_1.AperoService]
+            templateUrl: 'app/components/app.component.html',
+            styleUrls: ['app/components/front/app.component.css'],
+            providers: [apero_service_1.AperoService],
+            directives: [router_1.ROUTER_DIRECTIVES, search_component_1.SearchComponent, sidebar_component_1.SidebarComponent, home_component_1.HomeComponent]
         }), 
         __metadata('design:paramtypes', [apero_service_1.AperoService])
     ], AppComponent);
