@@ -16,15 +16,15 @@ class FrontController extends Controller
 {
     public function index()
     {
-//        for angular 2
-        return  Apero::fetchJson()->withCookie(cookie('csrf', csrf_field()));
+////        for angular 2
+//        return  Apero::fetchJson()->withCookie(cookie('csrf', csrf_field()));
 
 
         
-////        for blade
-//        $r = Apero::where('status', '=', 'publish')->orderBy('date', 'asc')->paginate(3);
-//
-//        return view('rm.index', ['aperos' => $r]);
+//        for blade
+        $r = Apero::where('status', '=', 'publish')->orderBy('date', 'asc')->paginate(3);
+
+        return view('rm.index', ['aperos' => $r]);
     }
 
     public function create(Request $request)
